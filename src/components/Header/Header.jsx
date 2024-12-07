@@ -4,6 +4,7 @@ import { Outlet, NavLink } from 'react-router-dom';
 import { MdCurrencyExchange } from 'react-icons/md';
 
 import styles from './Header.module.css';
+import { Loader } from '..';
 
 export const Header = () => {
   return (
@@ -37,9 +38,9 @@ export const Header = () => {
           </nav>
         </div>
       </header>
-      {/* <Suspense fallback={null}>
+      <Suspense fallback={<Loader/>}>
         <Outlet />
-      </Suspense> */}
+      </Suspense>
     </>
   );
 };

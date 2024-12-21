@@ -4,9 +4,13 @@ import { Outlet, NavLink } from 'react-router-dom';
 import { MdCurrencyExchange } from 'react-icons/md';
 
 import styles from './Header.module.css';
-import { Loader } from '..';
+import { Loader, SelectRates } from '..';
+import { useSelector } from 'react-redux';
+import { selectBaseCurrency } from '../../redux/selectors';
 
 export const Header = () => {
+const baseCurrency = useSelector(selectBaseCurrency)
+
   return (
     <>
       <header className={styles.header}>
@@ -37,6 +41,7 @@ export const Header = () => {
             </ul>
           </nav>
         </div>
+        {baseCurrency && <SelectRates baseCurrency={baseCurrency}/>}
       </header>
       <Suspense fallback={<Loader/>}>
         <Outlet />

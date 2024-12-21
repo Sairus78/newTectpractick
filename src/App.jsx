@@ -20,7 +20,7 @@ export const App = () => {
     navigator.geolocation.getCurrentPosition(success, error);
   }, [dispatch]);
 
-  return (
+  return (  
     <>
       <Routes>
         <Route path="/" element={<Header />}>
